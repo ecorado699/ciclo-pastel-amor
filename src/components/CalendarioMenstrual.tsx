@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -36,7 +35,7 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
     
     switch (estado) {
       case 'periodo':
-        return `${baseClasses} bg-rose-300 text-gray-800`;
+        return `${baseClasses} bg-fuchsia-300 text-gray-800`;
       case 'fertil':
         return `${baseClasses} bg-green-200 text-gray-800`;
       case 'ovulacion':
@@ -95,7 +94,7 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
           <CardContent className="p-4">
             <div className="flex flex-wrap gap-4 justify-center">
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-rose-300"></div>
+                <div className="w-4 h-4 rounded-full bg-fuchsia-300"></div>
                 <span className="text-sm text-gray-700">Período</span>
               </div>
               <div className="flex items-center gap-2">
@@ -188,8 +187,8 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
           
           <Card className="bg-pink-50 border-pink-200">
             <CardContent className="p-4 text-center">
-              <Droplet className="h-8 w-8 text-rose-400 mx-auto mb-2" />
-              <h3 className="font-medium text-rose-400">Duración del Período</h3>
+              <Droplet className="h-8 w-8 text-fuchsia-400 mx-auto mb-2" />
+              <h3 className="font-medium text-fuchsia-400">Duración del Período</h3>
               <p className="text-2xl font-bold text-gray-800">{datosCiclo.duracionPeriodo} días</p>
             </CardContent>
           </Card>
