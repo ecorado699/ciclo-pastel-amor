@@ -39,15 +39,15 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-gray-900 border-gray-700">
+      <Card className="w-full max-w-md bg-pink-50 border-pink-200">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <Heart className="h-12 w-12 text-pink-300" />
+            <Heart className="h-12 w-12 text-pink-400" />
           </div>
-          <CardTitle className="text-2xl text-pink-200">
+          <CardTitle className="text-2xl text-pink-400">
             Calendario Menstrual
           </CardTitle>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-600 text-sm">
             Ingresa tu información para comenzar a rastrear tu ciclo
           </p>
         </CardHeader>
@@ -55,7 +55,7 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="ultimo-periodo" className="text-pink-200">
+              <Label htmlFor="ultimo-periodo" className="text-pink-400">
                 Fecha del último período
               </Label>
               <div className="relative">
@@ -64,7 +64,7 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
                   type="date"
                   value={ultimoPeriodo}
                   onChange={(e) => setUltimoPeriodo(e.target.value)}
-                  className="bg-gray-800 border-gray-600 text-white"
+                  className="bg-white border-pink-300 text-gray-800"
                   required
                 />
                 <CalendarIcon className="absolute right-3 top-3 h-4 w-4 text-gray-400" />
@@ -72,7 +72,7 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="duracion-ciclo" className="text-pink-200">
+              <Label htmlFor="duracion-ciclo" className="text-pink-400">
                 Duración del ciclo (días)
               </Label>
               <Input
@@ -82,7 +82,7 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
                 max="35"
                 value={duracionCiclo}
                 onChange={(e) => setDuracionCiclo(Number(e.target.value))}
-                className="bg-gray-800 border-gray-600 text-white"
+                className="bg-white border-pink-300 text-gray-800"
               />
               <p className="text-xs text-gray-500">
                 Típicamente entre 21-35 días (promedio 28)
@@ -90,7 +90,7 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="duracion-periodo" className="text-pink-200">
+              <Label htmlFor="duracion-periodo" className="text-pink-400">
                 Duración del período (días)
               </Label>
               <Input
@@ -100,7 +100,7 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
                 max="7"
                 value={duracionPeriodo}
                 onChange={(e) => setDuracionPeriodo(Number(e.target.value))}
-                className="bg-gray-800 border-gray-600 text-white"
+                className="bg-white border-pink-300 text-gray-800"
               />
               <p className="text-xs text-gray-500">
                 Típicamente entre 3-7 días (promedio 5)
@@ -109,7 +109,7 @@ const FormularioInicial = ({ onDatosCompletos }: Props) => {
 
             <Button 
               type="submit" 
-              className="w-full bg-pink-300 hover:bg-pink-400 text-black font-medium"
+              className="w-full bg-pink-400 hover:bg-pink-500 text-white font-medium"
             >
               Crear Mi Calendario
             </Button>

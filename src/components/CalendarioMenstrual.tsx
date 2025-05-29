@@ -36,15 +36,15 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
     
     switch (estado) {
       case 'periodo':
-        return `${baseClasses} bg-red-300 text-black`;
+        return `${baseClasses} bg-red-500 text-white`;
       case 'fertil':
-        return `${baseClasses} bg-green-300 text-black`;
+        return `${baseClasses} bg-green-200 text-gray-800`;
       case 'ovulacion':
-        return `${baseClasses} bg-yellow-300 text-black ring-2 ring-yellow-400`;
+        return `${baseClasses} bg-cyan-200 text-gray-800 ring-2 ring-cyan-300`;
       case 'premenstrual':
-        return `${baseClasses} bg-purple-300 text-black`;
+        return `${baseClasses} bg-violet-200 text-gray-800`;
       default:
-        return `${baseClasses} bg-gray-700 text-gray-300 hover:bg-gray-600`;
+        return `${baseClasses} bg-gray-100 text-gray-600 hover:bg-gray-200`;
     }
   };
 
@@ -70,20 +70,20 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
   }, [datosCiclo]);
 
   return (
-    <div className="min-h-screen bg-black p-4">
+    <div className="min-h-screen bg-white p-4">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold text-pink-200">Mi Calendario Menstrual</h1>
-            <p className="text-gray-400">
+            <h1 className="text-3xl font-bold text-pink-400">Mi Calendario Menstrual</h1>
+            <p className="text-gray-600">
               Próximo período: {format(proximoPeriodo, 'dd \'de\' MMMM', { locale: es })}
             </p>
           </div>
           <Button
             onClick={onReiniciar}
             variant="outline"
-            className="border-gray-600 text-gray-300 hover:bg-gray-800"
+            className="border-pink-300 text-pink-400 hover:bg-pink-50"
           >
             <Settings className="h-4 w-4 mr-2" />
             Configurar
@@ -91,49 +91,49 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
         </div>
 
         {/* Leyenda */}
-        <Card className="bg-gray-900 border-gray-700">
+        <Card className="bg-pink-50 border-pink-200">
           <CardContent className="p-4">
             <div className="flex flex-wrap gap-4 justify-center">
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-red-300"></div>
-                <span className="text-sm text-gray-300">Período</span>
+                <div className="w-4 h-4 rounded-full bg-red-500"></div>
+                <span className="text-sm text-gray-700">Período</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-green-300"></div>
-                <span className="text-sm text-gray-300">Días fértiles</span>
+                <div className="w-4 h-4 rounded-full bg-green-200"></div>
+                <span className="text-sm text-gray-700">Días fértiles</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-yellow-300 ring-2 ring-yellow-400"></div>
-                <span className="text-sm text-gray-300">Ovulación</span>
+                <div className="w-4 h-4 rounded-full bg-cyan-200 ring-2 ring-cyan-300"></div>
+                <span className="text-sm text-gray-700">Ovulación</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-purple-300"></div>
-                <span className="text-sm text-gray-300">Premenstrual</span>
+                <div className="w-4 h-4 rounded-full bg-violet-200"></div>
+                <span className="text-sm text-gray-700">Premenstrual</span>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Calendario */}
-        <Card className="bg-gray-900 border-gray-700">
+        <Card className="bg-pink-50 border-pink-200">
           <CardHeader>
             <div className="flex justify-between items-center">
               <Button
                 onClick={mesAnterior}
                 variant="ghost"
                 size="sm"
-                className="text-gray-300 hover:bg-gray-800"
+                className="text-pink-400 hover:bg-pink-100"
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <CardTitle className="text-xl text-pink-200">
+              <CardTitle className="text-xl text-pink-400">
                 {format(fechaActual, 'MMMM yyyy', { locale: es })}
               </CardTitle>
               <Button
                 onClick={mesSiguiente}
                 variant="ghost"
                 size="sm"
-                className="text-gray-300 hover:bg-gray-800"
+                className="text-pink-400 hover:bg-pink-100"
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -144,7 +144,7 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
             {/* Días de la semana */}
             <div className="grid grid-cols-7 gap-2 mb-4">
               {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map((dia) => (
-                <div key={dia} className="text-center text-sm font-medium text-gray-400 p-2">
+                <div key={dia} className="text-center text-sm font-medium text-gray-600 p-2">
                   {dia}
                 </div>
               ))}
@@ -160,7 +160,7 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
                   <div
                     key={dia.toISOString()}
                     className={`relative ${obtenerClaseDia(estado)} ${
-                      esHoy ? 'ring-2 ring-blue-400' : ''
+                      esHoy ? 'ring-2 ring-pink-400' : ''
                     }`}
                   >
                     {format(dia, 'd')}
@@ -178,29 +178,29 @@ const CalendarioMenstrual = ({ datosCiclo, onReiniciar }: Props) => {
 
         {/* Información adicional */}
         <div className="grid md:grid-cols-3 gap-4">
-          <Card className="bg-gray-900 border-gray-700">
+          <Card className="bg-pink-50 border-pink-200">
             <CardContent className="p-4 text-center">
-              <Heart className="h-8 w-8 text-pink-300 mx-auto mb-2" />
-              <h3 className="font-medium text-pink-200">Duración del Ciclo</h3>
-              <p className="text-2xl font-bold text-white">{datosCiclo.duracionCiclo} días</p>
+              <Heart className="h-8 w-8 text-pink-400 mx-auto mb-2" />
+              <h3 className="font-medium text-pink-400">Duración del Ciclo</h3>
+              <p className="text-2xl font-bold text-gray-800">{datosCiclo.duracionCiclo} días</p>
             </CardContent>
           </Card>
           
-          <Card className="bg-gray-900 border-gray-700">
+          <Card className="bg-pink-50 border-pink-200">
             <CardContent className="p-4 text-center">
-              <Droplet className="h-8 w-8 text-red-300 mx-auto mb-2" />
-              <h3 className="font-medium text-red-200">Duración del Período</h3>
-              <p className="text-2xl font-bold text-white">{datosCiclo.duracionPeriodo} días</p>
+              <Droplet className="h-8 w-8 text-red-400 mx-auto mb-2" />
+              <h3 className="font-medium text-red-400">Duración del Período</h3>
+              <p className="text-2xl font-bold text-gray-800">{datosCiclo.duracionPeriodo} días</p>
             </CardContent>
           </Card>
           
-          <Card className="bg-gray-900 border-gray-700">
+          <Card className="bg-pink-50 border-pink-200">
             <CardContent className="p-4 text-center">
-              <div className="h-8 w-8 bg-yellow-300 rounded-full mx-auto mb-2 flex items-center justify-center">
-                <Heart className="h-4 w-4 text-black" />
+              <div className="h-8 w-8 bg-cyan-200 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <Heart className="h-4 w-4 text-gray-700" />
               </div>
-              <h3 className="font-medium text-yellow-200">Último Período</h3>
-              <p className="text-sm font-medium text-white">
+              <h3 className="font-medium text-cyan-400">Último Período</h3>
+              <p className="text-sm font-medium text-gray-800">
                 {format(datosCiclo.ultimoPeriodo, 'dd/MM/yyyy')}
               </p>
             </CardContent>
